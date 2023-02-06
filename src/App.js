@@ -9,6 +9,7 @@ import SingleProduct from './Component/Products/SingleProduct';
 import ChangePassword from './Component/User/ChangePassword';
 import Dashboard from './Component/User/Dashboard';
 import Login from './Component/User/Login';
+import Profile from './Component/User/profile';
 import Register from './Component/User/Register';
 import Dicideheader from './Header/decideheader';
 import Alertpop from './Layout/Alertpop';
@@ -35,6 +36,7 @@ function App() {
   <Route path='/dashboard' element={<Dashboard/>}/>
   <Route path='/products/:id' element={<SingleProduct/>}/>
   <Route path='/login' element={<Login/>}/>
+  <Route path='/profile' element={<Profile/>}/>
   <Route path='/register' element={<Register/>}/>
   <Route path='/products' element={<Products/>}/>
   <Route path='/products/addproduct' element={<AddProduct/>}/>

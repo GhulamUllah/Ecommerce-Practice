@@ -9,7 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { useDispatch, useSelector } from "react-redux";
-import { Avatar, Box, Button,Typography } from "@material-ui/core";
+import { Avatar, Box, Button,Typography} from "@material-ui/core";
 import { deleteitemcart, qdec, qinc } from "../../Redux/Action/CartAction";
 import { useNavigate } from "react-router-dom";
 import { Skeleton } from "@mui/material";

@@ -7,5 +7,5 @@ export default  combineReducers({
     auth:AuthReducer,
     product:product,
     alert:AlertReducer,
-    cart:UserCart
+    cart:UserCart,
 })

@@ -11,7 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {logout} from '../Redux/Action/Authaction'
 import { Link, useNavigate } from 'react-router-dom';
 import AddProduct from '../Component/Products/AddProduct';
@@ -20,6 +20,9 @@ import { loadcart } from '../Redux/Action/CartAction';
 
 export default function Authheader() {
     let navigate=useNavigate()
+    let name=useSelector((state)=>state?.auth?.user?.username)
+    console.log(name.charAt(0))
+    let nome=name.charAt(0)
     let [Open,setOpen]=React.useState(false)
     let [preview,setpreview]=React.useState()
     let dispatch=useDispatch()
@@ -28,6 +31,9 @@ export default function Authheader() {
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     };
+    let handleprofile=()=>{
+      return navigate('/profile')
+    }
     const handleClose = () => {
       setAnchorEl(null);
     };
@@ -37,10 +43,7 @@ export default function Authheader() {
     let handlelogout=()=>{
         dispatch(logout())
     }
-    let uploadprofile=(e)=>{
-
-        console.log(e)
-    }
+   
     let handlecart=()=>{
        navigate('cart')
        dispatch(loadcart())
@@ -69,7 +72,7 @@ export default function Authheader() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 40, height: 40 }}>{preview ? preview : 'U'}</Avatar>
+            <Avatar sx={{ width: 40, height: 40 }}>{preview ? preview : nome}</Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -108,13 +111,9 @@ export default function Authheader() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem>
+        <MenuItem onClick={handleprofile}>
         <Avatar/>
-        <Button component="label">
-
-        <input hidden accept="image/*" multiple type="file" onChange={uploadprofile}/>
-        Profile
-        </Button>
+          Profile
         </MenuItem>
         <MenuItem>
           <Avatar /> My account
